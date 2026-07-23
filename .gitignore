@@ -1,0 +1,11 @@
+.env
+.env.*
+vendor/
+node_modules/
+coverage/
+composer.phar
+composer-setup.php
+.claude/
+memory/
+*.log
+.DS_Store

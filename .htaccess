@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /olms/
+
+# If the request is for an existing file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Serve static assets from the public/ directory
+RewriteRule ^css/(.*)$ public/css/$1 [L]
+RewriteRule ^js/(.*)$ public/js/$1 [L]
+
+# Otherwise, send everything to the front controller
+RewriteRule ^(.*)$ index.php [L,QSA]
